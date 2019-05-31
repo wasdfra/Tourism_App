@@ -16,6 +16,10 @@
             android:id="@+id/show_map"
             android:icon="@drawable/ic_launcher_background"
             android:title="Show Maps" />
+        <item
+            android:id="@+id/show_info"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="Show Info" />
     </group>
 
 </menu>

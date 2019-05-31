@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.tourism.app.Fragments.Show_Home_Fragment;
+import com.tourism.app.Fragments.Show_Info_Fragment;
 import com.tourism.app.Fragments.Show_Map_Fragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -54,7 +55,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if (id == R.id.show_map) {
             fragmentReplacer(new Show_Map_Fragment());
         }else if (id == R.id.show_routes) {
-        fragmentReplacer(new Show_Map_Fragment());
+            fragmentReplacer(new Show_Map_Fragment());
+        }else if (id == R.id.show_info) {
+            fragmentReplacer(new Show_Info_Fragment());
     }
 
 
