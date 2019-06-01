@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Fragments.Show_Home_Fragment">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <ImageView
+            android:id="@+id/info_image"
+            android:contentDescription="@string/image_descripion"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             app:srcCompat="@color/grey" />
@@ -20,9 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
-            android:text="Hello from Show Info fragment -> Change To location info" />
-    </LinearLayout>
+            android:text="@string/info_fragment" />
     <!--TODO: Change example of text-->
 
 
-</FrameLayout>
+</LinearLayout>

@@ -7,19 +7,19 @@
         <item
             android:id="@+id/show_home"
             android:icon="@drawable/ic_launcher_background"
-            android:title="Home" />
+            android:title="@string/menu_home"/>
         <item
             android:id="@+id/show_routes"
             android:icon="@drawable/ic_launcher_background"
-            android:title="Show Routes" />
+            android:title="@string/menu_route"/>
         <item
             android:id="@+id/show_map"
             android:icon="@drawable/ic_launcher_background"
-            android:title="Show Maps" />
+            android:title="@string/menu_map"/>
         <item
             android:id="@+id/show_info"
             android:icon="@drawable/ic_launcher_background"
-            android:title="Show Info" />
+            android:title="@string/menu_info"/>
     </group>
 
 </menu>
