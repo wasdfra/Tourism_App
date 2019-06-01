@@ -7,7 +7,7 @@
     <string name="menu_info">Mostar informação próxima</string>
     <string name="image_descripion">"Informação da imagem"</string>
     <string name="route_frament">Olá do fragmento das rotas</string>
-    <string name="info_fragment">Olá do fragmento de inforação -> Mudar para informação de localização</string>
+    <string name="info_fragment">Olá do fragmento de informação -> Mudar para informação de localização</string>
     <string name="home_fragment">Olá do fragmento inicial</string>
     <string name="map_fragment">Olá do fragmento dos mapas</string>
 </resources>
