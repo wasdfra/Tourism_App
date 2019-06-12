@@ -1,6 +1,10 @@
 package com.tourism.app;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,10 +15,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.tourism.app.Fragments.Show_Home_Fragment;
-import com.tourism.app.Fragments.Show_Info_Fragment;
-import com.tourism.app.Fragments.Show_Map_Fragment;
+import com.tourism.app.data.DBHelper;
+import com.tourism.app.data.DatabaseManager;
+import com.tourism.app.fragments.Show_Home_Fragment;
+import com.tourism.app.fragments.Show_Info_Fragment;
+import com.tourism.app.fragments.Show_Map_Fragment;
+import com.tourism.app.service.Track_Service;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -22,6 +30,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DBHelper dbHelper = new DBHelper(getApplicationContext());
+        DatabaseManager.initializeInstance(dbHelper);
+
+        if (!checkLocationPermission())
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        else
+            startService(new Intent(getApplicationContext(), Track_Service.class)); //TODO: Change to route selection
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -66,4 +84,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (!(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+            Toast.makeText(this, "Precisa de GPS para funcionar", Toast.LENGTH_LONG).show();
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }else
+            startService(new Intent(getApplicationContext(), Track_Service.class)); //TODO: Change to route selection
+
+    }
+
+    public boolean checkLocationPermission() {
+        String permission = "android.permission.ACCESS_FINE_LOCATION";
+        int res = this.checkCallingOrSelfPermission(permission);
+        return (res == PackageManager.PERMISSION_GRANTED);
+    }
+
 }

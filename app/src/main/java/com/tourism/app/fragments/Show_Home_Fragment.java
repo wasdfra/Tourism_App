@@ -1,4 +1,4 @@
-package com.tourism.app.Fragments;
+package com.tourism.app.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

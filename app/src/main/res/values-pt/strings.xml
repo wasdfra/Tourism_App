@@ -1,13 +1,18 @@
 <resources>
     <string name="navigation_drawer_open">Abrir gaveta de navgação</string>
     <string name="navigation_drawer_close">Fechar gaveta de navgação</string>
+
     <string name="menu_home">Mostrar início</string>
     <string name="menu_route">Mostrar Rotas</string>
     <string name="menu_map">Mostar Mapa</string>
     <string name="menu_info">Mostar informação próxima</string>
+
     <string name="image_descripion">"Informação da imagem"</string>
+
     <string name="route_frament">Olá do fragmento das rotas</string>
     <string name="info_fragment">Olá do fragmento de informação -> Mudar para informação de localização</string>
     <string name="home_fragment">Olá do fragmento inicial</string>
     <string name="map_fragment">Olá do fragmento dos mapas</string>
+
+    <string name="gps_error">"Necessita permissão GPS,  A terminar seviço"</string>
 </resources>
