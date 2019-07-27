@@ -14,4 +14,6 @@
     <string name="info_fragment">Hello from Show Info fragment -> Change To location info</string>
     <string name="home_fragment">Hello from Home fragment</string>
     <string name="map_fragment">Hello from Map fragment</string>
+
+    <string name="gps_error">"Need to start GPS, terminating service"</string>
 </resources>

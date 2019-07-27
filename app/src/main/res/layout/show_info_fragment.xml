@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.Show_Home_Fragment">
+    tools:context=".fragments.Show_Home_Fragment">
 
         <ImageView
             android:id="@+id/info_image"
