@@ -95,7 +95,6 @@ public class GPS {
                 Long = location.getLongitude();
                 Lat= location.getLatitude();
                 Alt = location.getAltitude();
-                location.
                 hasData = true;
             }
 

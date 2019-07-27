@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Tourism_App</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCa-bXlsdw22aUcUb9uBIYEZDO1hjz21cY</string> <!--TODO: CHANGE API KEY !-->
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

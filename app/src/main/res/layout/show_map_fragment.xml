@@ -7,10 +7,13 @@
 
     <!--TODO: Get map API Key.-->
     <!--TODO: Implement Mao-->
-
-    <TextView
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello from Show Map fragment" />
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        />
+
 
 </FrameLayout>
