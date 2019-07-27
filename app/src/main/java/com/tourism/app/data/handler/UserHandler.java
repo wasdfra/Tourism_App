@@ -10,7 +10,7 @@ import com.tourism.app.data.model.User;
 
 
 /**
- * Created by estgl3264 on 03/05/2018.
+ * Created by Franisco Azevedo on 03/05/2018.
  */
 
 public class UserHandler {

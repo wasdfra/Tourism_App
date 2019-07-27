@@ -10,7 +10,7 @@ import com.tourism.app.data.model.RouteData;
 import java.util.ArrayList;
 
 /**
- * Created by estgl3264 on 02/05/2018.
+ * Created by Franisco Azevedo on 02/05/2018.
  */
 
 public class RouteDataHandler {
@@ -52,7 +52,7 @@ public class RouteDataHandler {
     }
 
     public synchronized ArrayList<RouteData> getDataBy(String key, String uid) {
-        ArrayList<RouteData> routeDataList = new ArrayList<RouteData>();
+        ArrayList<RouteData> routeDataList = new ArrayList<>();
 
         Cursor C;
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();

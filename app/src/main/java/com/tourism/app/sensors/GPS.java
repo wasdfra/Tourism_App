@@ -22,7 +22,7 @@ import java.util.List;
 
 
 /**
- * Created by estgl3264 on 30/08/2018.
+ * Created by Francisco Azevedo on 30/08/2018.
  */
 
 public class GPS {
@@ -41,7 +41,7 @@ public class GPS {
     private double Long;
     private double Alt;
 
-    public boolean hasData = false;
+    private boolean hasData = false;
 
     private int UID = -1;
 
@@ -87,7 +87,7 @@ public class GPS {
         return tmp;
     }
 
-    void createGPSListner(){
+    private void createGPSListner(){
         GPSListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -95,6 +95,7 @@ public class GPS {
                 Long = location.getLongitude();
                 Lat= location.getLatitude();
                 Alt = location.getAltitude();
+                location.
                 hasData = true;
             }
 
@@ -119,28 +120,28 @@ public class GPS {
         };
     }
 
-    public void Stop(){
-        timer.removeCallbacks(gravFich);
+    public void stop(){
+        timer.removeCallbacks(saveFile);
         locationManager.removeUpdates(GPSListener);
         timer.removeCallbacksAndMessages(null);
     }
 
 
-    public void startGPS(int minTime, int minDistance, int res, float freq)throws SecurityException {
+    public void startGPS(int minTime, int minDistance, int res, int freq)throws SecurityException {
         this.createGPSListner();
 
         if(res == PackageManager.PERMISSION_GRANTED) {
             locationManager.requestLocationUpdates("gps", minTime, minDistance, GPSListener);
-            timer.postDelayed(gravFich, (int)((1000/freq)+0.5));  //Convert Hz to ms and round the result
+            timer.postDelayed(saveFile, freq);  //Convert Hz to ms and round the result
         }
 
         hasData = false;
     }
 
-    Runnable gravFich =  new Runnable() {
+    private Runnable saveFile =  new Runnable() {
         @Override
         public void run() {
-            timer.postDelayed(gravFich, 1000);
+            timer.postDelayed(saveFile, 1000);
             long currentDateTime = System.currentTimeMillis();
 
             if(hasData)
@@ -174,10 +175,10 @@ public class GPS {
     }
 
     public void setDataState(JSONArray data, boolean state) throws JSONException {
-        JSONObject tempJson = new JSONObject();
+        JSONObject tempJson;
         for (int i = 0; i < data.length(); i++) {
             tempJson = data.getJSONObject(i);
-            if (state = true)
+            if (state)
                 GPSDataHandler.changeSavedStatus(tempJson.getInt("GPSDataID"), state);
         }
     }

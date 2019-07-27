@@ -18,7 +18,6 @@ import java.util.Locale;
 
 public class Show_Info_Fragment extends Fragment  {
 
-
     public static Show_Info_Fragment newInstance() {
         return new Show_Info_Fragment();
     }
@@ -54,10 +53,6 @@ public class Show_Info_Fragment extends Fragment  {
 
             }
         });
-
-
-
-
 
 
         ImageButton replayButton = view.findViewById(R.id.replay_button);

@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Created by estgl3264 on 02/05/2018.
+ * Created by Franisco Azevedo on 02/05/2018.
  */
 public class DatabaseManager {
     private static int mOpenCounter;

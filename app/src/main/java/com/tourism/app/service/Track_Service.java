@@ -11,12 +11,17 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.tourism.app.R;
 import com.tourism.app.sensors.GPS;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Track_Service extends Service {
     private static Integer ServiceID = null;
@@ -29,15 +34,15 @@ public class Track_Service extends Service {
 
     public GPS gps = null;
 
-    public int gpsFreq = 1; //In Hz
+    public static Handler timer = new Handler();
 
-    public Track_Service() {
-    }
+    public int gpsFreq = 1000; //In ms
+
+    public Track_Service(){}
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+        return null;
     }
 
 
@@ -46,7 +51,6 @@ public class Track_Service extends Service {
         if (ServiceID != null)
             throw new UnsupportedOperationException("Already started");
         ServiceID = startId;
-
         gps = new GPS(0, (LocationManager) getSystemService(LOCATION_SERVICE));
 
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -79,10 +83,27 @@ public class Track_Service extends Service {
         );
 
         gps.startGPS(0,0, this.checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION"), gpsFreq);
+        timer.postDelayed(checkData, gpsFreq);
 
         }catch (SecurityException e){
             e.printStackTrace();
         }
     }
+
+    private Runnable checkData = new Runnable() {
+
+        @Override
+        public void run() {
+
+            try {
+                Log.e("GPS Data:", gps.getLastData().toString(2));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+
+            timer.postDelayed(checkData, gpsFreq);
+        }
+
+    };
 
 }
